@@ -1,0 +1,295 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<link href="https://fonts.cdnfonts.com/css/calibri-light" rel="stylesheet">
+		<title>Hyperspace by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script>
+			// Function to type out a string character by character with a faster speed
+			function typeText(targetElement, text, delay) {
+				let index = 0;
+				const intervalId = setInterval(function () {
+					if (index < text.length) {
+						targetElement.textContent += text.charAt(index);
+						index++;
+					} else {
+						clearInterval(intervalId);
+					}
+				}, delay);
+			}
+	
+			// Array of job titles to loop through
+			const jobTitles = ["DevOps Engineer", "Network Engineer", "5G RAN Engineer" , "Cloud Enthusiast"];
+			let currentIndex = 0;
+	
+			// Function to change the job title with faster typing animation
+			function changeJobTitleWithTyping() {
+				const jobSpan = document.getElementById("job");
+				jobSpan.textContent = "";
+				const currentJobTitle = jobTitles[currentIndex];
+				typeText(jobSpan, currentJobTitle, 50); // Type with 50ms delay between characters (faster)
+				currentIndex = (currentIndex + 1) % jobTitles.length; // Loop through the job titles
+			}
+	
+			// Initial sentence
+			const initialSentence = "Szymon is... ";
+	
+			// Start looping through job titles with faster typing animation
+			setInterval(() => {
+				changeJobTitleWithTyping();
+			}, 2000); // Change every 2 seconds (faster)
+		</script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Sidebar -->
+		<section id="sidebar">
+			<div class="inner">
+				<nav>
+					<ul>
+						<li><a href="#intro">HOME</a></li>
+						<li><a href="#1">ABOUT</a></li>
+						<li><a href="#2">PROJECTS</a></li>
+						<li><a href="#3">ACHIEVMENTS</a></li>
+						<li><a href="#4">CONTACT</a></li>
+					</ul>
+				</nav>
+			</div>
+		</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+					<section id="intro" class="wrapper style1 fullscreen fade-up">
+						<div class="inner">
+							<h1>Simon Izydorek</h1>
+							
+							<div class="container">
+								<h1>I'm <span class="auto-type"></span></h1>
+							  </div>
+							  
+							  <style>
+								/* Add CSS styles to make the text red and bold */
+								.red-bold {
+								  color: #5e42a6;
+								  font-weight: bold;
+								}
+							  </style>
+							  
+							  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+							  
+							  <script>
+								var typed = new Typed(".auto-type", {
+								  strings: ['<span class="red-bold">Network Engineer.</span>', '<span class="red-bold">Cloud Enthusiast.</span>', '<span class="red-bold">DevOps Engineer.</span>'],
+								  typeSpeed: 80,
+								  backSpeed: 80,
+								  loop: true
+								})
+							  </script>	
+							  <h1 id="typing-text"></h1>
+							
+							<ul class="actions">
+								<li><a href="#1_about" class="button scrolly custom-button">Let's meet</a></li>
+							</ul>
+						</div>
+					</section>
+
+			          <!-- about me area -->
+					  <section id="1" class="section-container-about-me">
+						
+
+						<div class="column image-column">
+							<img src="banner.png" alt="Image_about_me" class="image">
+						</div>
+						<div class="column text-column">
+							<h2>About me</h2>
+							<p>I'm Simon and I'm <span class="auto-type2"></span><p>
+
+								<style>
+									/* Add CSS styles to make the text red and bold */
+									.red-bold {
+									  color: #5e42a6;
+									  font-weight: bold;
+									}
+								  </style>
+								  
+								  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+								  
+								  <script>
+									var typed = new Typed(".auto-type2", {
+									  strings: ['<span class="red-bold">Network Engineer.</span>', '<span class="red-bold">Cloud Enthusiast.</span>', '<span class="red-bold">DevOps Engineer.</span>'],
+									  typeSpeed: 80,
+									  backSpeed: 80,
+									  loop: true
+									})
+								  </script>	
+								  <h1 id="typing-text"></h1>
+
+								  <p>I'm a seasoned network engineer with a strong background in cutting-edge <br> 
+									technologies such as 5G, Cisco networking, and cloud solutions with a focus <br> 
+									on Amazon Web Services (AWS) and Microsoft Azure. My primary passion lies  <br>
+									in Cloud and DevOps engineering. <br> 
+									</p>
+									<div id="views">👀 VIEWS: Loading...</div>
+									<br>
+									
+									<ul class="actions">
+									<li><a href="https://drive.google.com/file/d/1-QSpvdZDEFchsgen3dOqdbvUfUd2RFmN/view?usp=drive_link" class="button scrolly custom-button" target="_blank">Download CV</a></li>
+									</ul>
+						</div>
+					</section>
+				<section id="2" class="wrapper style2 spotlights">
+				
+					<script>
+						// Fetch data from your Lambda function
+						fetch('https://ew6777dpvvqmpe3hstzi7k6hd40rhhmt.lambda-url.us-east-1.on.aws/')
+							.then(response => response.text())  // Parse the response as text
+							.then(data => {
+								// Convert the data to a number (assuming it's a valid number)
+								const views = parseInt(data);
+				
+								// Update the content of the 'views' element with the retrieved data
+								document.getElementById('views').textContent = `This page was visited ${views} times 👀.`;
+							})
+							.catch(error => {
+								console.error('Error fetching data:', error);
+								document.getElementById('views').textContent = '👀 VIEWS: Error';
+							});
+					</script>
+
+					<section>
+						<a href="#" class="image"><img src="crc.png" alt="" data-position="top center" /></a>
+						<div class="content">
+							<div class="inner">
+								<h2 style="font-family: 'Calibri Light', sans-serif; font-size: 40px; color: white;">
+									Cloud Resume Challenge</h2>
+								<br>  
+
+								<p style="font-size: 25px; color: rgb(255, 255, 255); text-align: left; font-family: 'Calibri Light', sans-serif;">
+									The Cloud Resume Challenge is a hands-on project designed to help you bridge the gap from cloud certification to cloud job. 
+									It incorporates many of the skills that real cloud and DevOps engineers use in their daily work.
+								  </p>
+								  
+								  
+
+								<ul class="actions">
+									<li>
+										<a href="https://github.com/szymonizydorek/CloudResumeChallenge.git"
+										   target="_blank"
+										   class="button"
+										   style="background-color: white; border: 20px solid black;">
+										  <span style="font-size: 18px; color: #5e42a6;">GitHub Repo</span>
+										</a>
+									  </li>
+									  
+								</ul>
+							</div>
+						</div>
+					</section>
+					<section>
+						<a href="" class="image"><img src="aws.png" alt="" data-position="center center" /></a>
+						<div class="content">
+							<div class="inner">
+								<h2 style="font-family: 'Calibri Light', sans-serif; font-size: 40px; color: white;">
+									Power of Math</h2>
+								<p style="font-family: 'Calibri Light', sans-serif; font-size: 25px; color: white;">
+									Simple Lambda project to calculate the power of a number.</p>
+								<input type="text" id="base">
+								   <label>...to the power of:</label>
+								   <input type="text" id="exponent">
+								   <br>
+								<!-- set button onClick method to call function we defined passing input values as parameters -->
+							
+								 <ul class="actions">
+									<li>
+										<a 
+										   target="_blank"
+										   class="button"
+										   onclick="callAPI(document.getElementById('base').value,document.getElementById('exponent').value)"
+										   style="background-color: white; border: 20px solid black;">
+										  <span style="font-size: 18px; color: #5e42a6;">Calculate</span>
+										</a>
+									  </li>  
+								<p></p>
+								
+
+								
+							</div>
+						</div>
+					</section>
+					
+						
+					</section>
+
+				<!-- Two -->
+					
+				<section id="3" class="section-container-achievments">	
+					<div class="column text-column">
+						<h2>Achievments</h2>
+						<h1 id="typing-text"></h1>
+							  
+							<p>
+							<li>Azure Fundamentals AZ-900</li>
+							<li>Azure Networking Solutions AZ-700</li>
+							<li>Cisco Certified Network Engineer</li>
+							<li>AWS Certified Developer Associate</li>
+							<li>AWS Certified Developer Associate</li>
+							</p>
+							<ul class="actions">
+							<li><a href="https://www.linkedin.com/in/sizydorek/" class="button scrolly custom-button" target="_blank">LinkedIn</a></li>
+
+					</div>
+					<div class="column image-column">
+						<img src="banner.png" alt="Image_about_me" class="image">
+					</div>
+				</section>
+
+				<!-- CONTACT page -->
+					<section id="4" class="get-in-touc">
+					
+						<h1>Contact Us</h1>
+						<p>Feel free to contact us via email. Please use the form below:</p>
+					  
+						<form action="mailto:your.email@example.com" method="post" enctype="text/plain">
+						  <label for="email">Your Email:</label>
+						  <input type="email" id="email" name="email" required>
+						  
+						  <label for="message">Message:</label>
+						  <textarea id="message" name="message" rows="4" required></textarea>
+					  
+						  <input type="submit" value="Send">
+						</form>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+	</body>
+
+</html>
+
